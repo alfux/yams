@@ -6,13 +6,13 @@
 #    By: alfux <alexis.t.fuchs@gmail.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/31 19:02:34 by alfux             #+#    #+#              #
-#    Updated: 2022/08/01 01:30:57 by alfux            ###   ########.fr        #
+#    Updated: 2022/08/04 00:57:16 by alfux            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SPATH	= src/
 
-SRC		= main.c
+SRC		= main.c ft_chkarg.c
 
 OPATH	= obj/
 
@@ -24,13 +24,13 @@ LIBFT	= libft.a
 
 HPATH	= hdr/
 
-HEADER	= minishell.h
+HEADER	= yams.h
 
 OPTION	= -Wall -Werror -Wextra -I$(LPATH) -I$(HPATH)
 
 SIL		= --no-print-directory
 
-NAME	= minishell
+NAME	= yams
 
 all					:	$(NAME)
 
@@ -57,7 +57,7 @@ clean				:
 
 fclean				:	clean
 						@(cd $(LPATH) && $(MAKE) $(SIL) fclean)
-						@(rm $(NAME))
+						@(rm -rf $(NAME))
 						@(echo "\033[31m$(NAME) removed\033[0m")
 
 re					:	fclean all
