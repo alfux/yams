@@ -6,7 +6,7 @@
 /*   By: alfux <alexis.t.fuchs@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 20:05:20 by alfux             #+#    #+#             */
-/*   Updated: 2022/08/04 01:04:19 by alfux            ###   ########.fr       */
+/*   Updated: 2022/08/04 14:37:16 by alfux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef YAMS_H
@@ -19,6 +19,17 @@
 # define BLUE "\033[34m"
 # define WHITE "\033[0m"
 
-int	ft_chkarg(char **av);
+struct					s_ply
+{
+	char	*name;
+	char	*move;
+	int		score;
+};
+typedef struct s_ply	t_ply;
+
+//Returns allocated memory array with player stats
+t_ply	*ft_getprm(int ac, char **av);
+//Prints starter flag with player names
+int		ft_print_players(t_ply *ply);
 
 #endif

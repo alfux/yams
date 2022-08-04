@@ -6,13 +6,13 @@
 #    By: alfux <alexis.t.fuchs@gmail.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/31 19:02:34 by alfux             #+#    #+#              #
-#    Updated: 2022/08/04 00:57:16 by alfux            ###   ########.fr        #
+#    Updated: 2022/08/04 14:32:50 by alfux            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SPATH	= src/
 
-SRC		= main.c ft_chkarg.c
+SRC		= main.c ft_getprm.c ft_print_players.c
 
 OPATH	= obj/
 
