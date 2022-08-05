@@ -6,7 +6,7 @@
 /*   By: alfux <alexis.t.fuchs@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 19:48:07 by alfux             #+#    #+#             */
-/*   Updated: 2022/08/04 15:21:10 by alfux            ###   ########.fr       */
+/*   Updated: 2022/08/05 02:27:37 by alfux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "yams.h"
@@ -26,7 +26,7 @@ static int	ft_errmsg(int errn, void *tofree)
 	return (1);
 }
 
-static int	ft_init(int ac, char **av, t_ply **ply)
+static int	ft_init_players(int ac, char **av, t_ply **ply)
 {
 	if (ac < 2)
 		return (ft_errmsg(1, (void *)0));
@@ -38,12 +38,62 @@ static int	ft_init(int ac, char **av, t_ply **ply)
 	return (0);
 }
 
+static void	*ft_free_comb(char **cmb)
+{
+	int	i;
+
+	i = 0;
+	while (i < NBC)
+	{
+		if (*(cmb + i))
+			free(*(cmb + i));
+		i++;
+	}
+	free(cmb);
+	return ((void *)0);
+}
+
+static char	**ft_init_comb(void)
+{
+	char	**cmb;
+	int		i;
+
+	cmb = ft_calloc(NBC, sizeof (char *));
+	if (!cmb)
+		return ((char **)0);
+	*(cmb + ONE) = ft_strdup("one");
+	*(cmb + TWO) = ft_strdup("two");
+	*(cmb + THR) = ft_strdup("three");
+	*(cmb + FOU) = ft_strdup("four");
+	*(cmb + FIV) = ft_strdup("five");
+	*(cmb + SIX) = ft_strdup("six");
+	*(cmb + BRE) = ft_strdup("brelan");
+	*(cmb + LIT) = ft_strdup("small straight");
+	*(cmb + BIG) = ft_strdup("big straight");
+	*(cmb + FUL) = ft_strdup("full");
+	*(cmb + SQU) = ft_strdup("square");
+	*(cmb + YAM) = ft_strdup("yam");
+	*(cmb + LUC) = ft_strdup("luck");
+	i = 0;
+	while (i < NBC)
+		if (!*(cmb + i++))
+			return (ft_free_comb(cmb));
+	return (cmb);
+}
+
 int	main(int ac, char **av)
 {
 	t_ply	*players;
+	char	**combinations;
 
-	if (ft_init(ac, av, &players))
+	if (ft_init_players(ac, av, &players))
 		return (1);
+	combinations = ft_init_comb();
+	if (!combinations)
+		return (ft_errmsg(2, players));
+	if (ft_yams(players, combinations) && !ft_free_comb(combinations))
+		return (ft_errmsg(2, players));
+	ft_free_comb(combinations);
 	free(players);
 	return (0);
 }
