@@ -6,7 +6,7 @@
 /*   By: alfux <alexis.t.fuchs@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 20:05:20 by alfux             #+#    #+#             */
-/*   Updated: 2022/08/05 02:31:07 by alfux            ###   ########.fr       */
+/*   Updated: 2022/08/06 00:24:10 by alfux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef YAMS_H
@@ -41,7 +41,6 @@ typedef enum e_grd		t_grd;
 struct					s_ply
 {
 	char	*name;
-	char	*move;
 	int		score;
 	t_grd	grd[13];
 };
@@ -51,6 +50,10 @@ typedef struct s_ply	t_ply;
 t_ply	*ft_getprm(int ac, char **av);
 //Prints starter flag with player names
 int		ft_print_players(t_ply *ply);
+//The game master
 int		ft_yams(t_ply *ply, char **cmb);
-int		ft_parse(t_ply *ply, char **cmb);
+//Command reader
+int		ft_parse(char *cmd, t_ply *ply, char **cmb);
+//Print the scorebord
+int		ft_scrbrd(t_ply *ply);
 #endif

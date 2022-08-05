@@ -6,31 +6,32 @@
 #    By: alfux <alexis.t.fuchs@gmail.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/31 19:02:34 by alfux             #+#    #+#              #
-#    Updated: 2022/08/05 01:18:12 by alfux            ###   ########.fr        #
+#    Updated: 2022/08/05 23:54:33 by alfux            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SPATH	= src/
+SPATH	=	src/
 
-SRC		= main.c ft_getprm.c ft_print_players.c ft_yams.c ft_parse.c
+SRC		=	main.c ft_getprm.c ft_print_players.c ft_yams.c ft_parse.c	\
+			ft_scrbrd.c													\
 
-OPATH	= obj/
+OPATH	=	obj/
 
-OBJ		= $(SRC:%.c=$(OPATH)%.o)
+OBJ		=	$(SRC:%.c=$(OPATH)%.o)
 
-LPATH	= libft/
+LPATH	=	libft/
 
-LIBFT	= libft.a
+LIBFT	=	libft.a
 
-HPATH	= hdr/
+HPATH	=	hdr/
 
-HEADER	= yams.h
+HEADER	=	yams.h
 
-OPTION	= -Wall -Werror -Wextra -I$(LPATH) -I$(HPATH)
+OPTION	=	-Wall -Werror -Wextra -I$(LPATH) -I$(HPATH)
 
-SIL		= --no-print-directory
+SIL		=	--no-print-directory
 
-NAME	= yams
+NAME	=	yams
 
 all					:	$(NAME)
 

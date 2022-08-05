@@ -6,7 +6,7 @@
 /*   By: alfux <alexis.t.fuchs@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 01:31:59 by alfux             #+#    #+#             */
-/*   Updated: 2022/08/05 02:36:52 by alfux            ###   ########.fr       */
+/*   Updated: 2022/08/06 00:42:24 by alfux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "yams.h"
@@ -26,31 +26,46 @@ static char	*ft_plytrn(char *name)
 	return (prompt);
 }
 
-int	ft_yams(t_ply *ply, char **cmb)
+static int	ft_turn(t_ply *ply, char **cmb)
 {
 	char	*line;
 	char	*prompt;
+	int		ret;
+
+	prompt = ft_plytrn(ply->name);
+	if (!prompt)
+		return (0);
+	line = readline(prompt);
+	free(prompt);
+	if (!line)
+		return (0);
+	ret = ft_parse(line, ply, cmb);
+	free(line);
+	return (ret);
+}
+
+int	ft_yams(t_ply *ply, char **cmb)
+{
 	int		turn;
+	int		ret;
 	int		i;
 
 	turn = 0;
-	i = 0;
-	while (turn < NBC)
+	while (turn++ < NBC)
 	{
+		i = 0;
 		while ((ply + i)->name)
 		{
-			prompt = ft_plytrn((ply + i)->name);
-			if (!prompt)
+			ret = ft_turn(ply + i, cmb);
+			if (ret == -1)
+				return (0);
+			else if (ret == -2)
 				return (1);
-			line = readline(prompt);
-			free(prompt);
-			ft_printf("%s\n", line);
-			if (ft_parse(ply, cmb))
+			else if (ret == 2)
+				ft_scrbrd(ply);
+			else if (ret)
 				i++;
-			free(line);
 		}
-		turn++;
-		i = 0;
 	}
 	return (0);
 }
