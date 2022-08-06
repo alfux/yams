@@ -6,7 +6,7 @@
 /*   By: alfux <alexis.t.fuchs@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 20:05:20 by alfux             #+#    #+#             */
-/*   Updated: 2022/08/06 07:32:46 by alfux            ###   ########.fr       */
+/*   Updated: 2022/08/06 15:38:56 by alfux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef YAMS_H
@@ -42,6 +42,7 @@ struct					s_ply
 {
 	char	*name;
 	t_grd	grd[13];
+	int		score;
 };
 typedef struct s_ply	t_ply;
 
@@ -57,4 +58,6 @@ int		ft_parse(char *cmd, t_ply *ply, char **cmb);
 int		ft_scrbrd(t_ply *ply, char **cmb, int onlyone);
 //Get total score
 int		ft_total(t_grd *grd);
+//Show who's da boss
+void	ft_winner(t_ply *ply);
 #endif

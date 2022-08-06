@@ -6,7 +6,7 @@
 /*   By: alfux <alexis.t.fuchs@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 19:48:07 by alfux             #+#    #+#             */
-/*   Updated: 2022/08/06 07:31:56 by alfux            ###   ########.fr       */
+/*   Updated: 2022/08/06 20:17:53 by alfux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "yams.h"
@@ -93,6 +93,7 @@ int	main(int ac, char **av)
 		return (ft_errmsg(2, players));
 	if (ft_yams(players, combinations) && !ft_free_comb(combinations))
 		return (ft_errmsg(2, players));
+	ft_winner(players);
 	ft_free_comb(combinations);
 	free(players);
 	return (0);
