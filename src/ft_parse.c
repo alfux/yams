@@ -6,7 +6,7 @@
 /*   By: alfux <alexis.t.fuchs@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 02:15:41 by alfux             #+#    #+#             */
-/*   Updated: 2022/08/06 07:18:05 by alfux            ###   ########.fr       */
+/*   Updated: 2022/08/06 14:58:53 by alfux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "yams.h"
@@ -95,7 +95,11 @@ int	ft_parse(char *cmd, t_ply *ply, char **cmb)
 		return (ft_freesplit(spl) + 3);
 	if (i < 0)
 		return (ft_freesplit(spl) * ft_printf("%s/!\\ Syntax%s\n", RED, WHITE));
-	ply->grd[i] = ft_addpnt(spl, i);
+	if (ply->grd[i] == (t_grd)-1)
+		ply->grd[i] = ft_addpnt(spl, i);
+	else
+		return (ft_freesplit(spl) * ft_printf(
+				"%s%s's case is already filled%s\n", RED, ply->name, WHITE));
 	if (ply->grd[i] == (t_grd)-1)
 		return (ft_freesplit(spl) * ft_printf("%s/!\\ Syntax%s\n", RED, WHITE));
 	return (ft_freesplit(spl) + 1);

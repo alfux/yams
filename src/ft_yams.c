@@ -6,7 +6,7 @@
 /*   By: alfux <alexis.t.fuchs@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 01:31:59 by alfux             #+#    #+#             */
-/*   Updated: 2022/08/06 07:14:50 by alfux            ###   ########.fr       */
+/*   Updated: 2022/08/06 14:43:51 by alfux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "yams.h"
@@ -69,5 +69,6 @@ int	ft_yams(t_ply *ply, char **cmb)
 				i++;
 		}
 	}
+	ft_scrbrd(ply, cmb, -1);
 	return (0);
 }
