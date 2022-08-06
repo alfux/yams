@@ -6,7 +6,7 @@
 /*   By: alfux <alexis.t.fuchs@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 01:31:59 by alfux             #+#    #+#             */
-/*   Updated: 2022/08/06 00:42:24 by alfux            ###   ########.fr       */
+/*   Updated: 2022/08/06 07:14:50 by alfux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "yams.h"
@@ -62,7 +62,9 @@ int	ft_yams(t_ply *ply, char **cmb)
 			else if (ret == -2)
 				return (1);
 			else if (ret == 2)
-				ft_scrbrd(ply);
+				ft_scrbrd(ply, cmb, -1);
+			else if (ret == 3)
+				ft_scrbrd(ply, cmb, i);
 			else if (ret)
 				i++;
 		}

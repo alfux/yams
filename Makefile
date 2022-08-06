@@ -6,14 +6,14 @@
 #    By: alfux <alexis.t.fuchs@gmail.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/31 19:02:34 by alfux             #+#    #+#              #
-#    Updated: 2022/08/05 23:54:33 by alfux            ###   ########.fr        #
+#    Updated: 2022/08/06 07:21:43 by alfux            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SPATH	=	src/
 
 SRC		=	main.c ft_getprm.c ft_print_players.c ft_yams.c ft_parse.c	\
-			ft_scrbrd.c													\
+			ft_scrbrd.c ft_total.c										\
 
 OPATH	=	obj/
 

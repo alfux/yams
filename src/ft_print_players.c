@@ -6,7 +6,7 @@
 /*   By: alfux <alexis.t.fuchs@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 14:33:05 by alfux             #+#    #+#             */
-/*   Updated: 2022/08/04 23:32:15 by alfux            ###   ########.fr       */
+/*   Updated: 2022/08/06 07:29:59 by alfux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "yams.h"
@@ -39,10 +39,10 @@ static void	ft_print_line(t_ply *ply, int i, int msize)
 
 	ft_printf("%s|%s Player %2i: ", GREEN, YELLOW, i + 1);
 	size = ft_strlen((ply + i)->name);
-	ft_printf("%s", (ply + i)->name, (ply + i)->score);
+	ft_printf("%s", (ply + i)->name);
 	while (msize - size++)
 		ft_printf(" ");
-	ft_printf(" %3i%s|%s\n", (ply + i)->score, GREEN, WHITE);
+	ft_printf(" %s|%s\n", GREEN, WHITE);
 }
 
 static void	ft_last_line(int msize)
@@ -51,7 +51,7 @@ static void	ft_last_line(int msize)
 
 	ft_printf("%s\\", GREEN);
 	i = 0;
-	while (++i < 17 + msize)
+	while (++i < 14 + msize)
 		ft_printf("-");
 	ft_printf("/%s\n", WHITE);
 }
@@ -62,11 +62,11 @@ static void	ft_first_line(int msize)
 
 	ft_printf("%s/", GREEN);
 	i = 0;
-	while (++i < ((17 + msize) / 2) - 2)
+	while (++i < ((14 + msize) / 2) - 2)
 		ft_printf("-");
 	ft_printf("YAMS");
 	i += 3;
-	while (++i < 17 + msize)
+	while (++i < 14 + msize)
 		ft_printf("-");
 	ft_printf("\\%s\n", WHITE);
 }
