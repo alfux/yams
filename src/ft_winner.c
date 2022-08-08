@@ -6,7 +6,7 @@
 /*   By: alfux <alexis.t.fuchs@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 15:30:09 by alfux             #+#    #+#             */
-/*   Updated: 2022/08/06 23:48:28 by alfux            ###   ########.fr       */
+/*   Updated: 2022/08/08 17:50:14 by alfux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "yams.h"
@@ -47,6 +47,7 @@ void	ft_winner(t_ply *ply)
 	int	mx;
 
 	i = -1;
+	j = 0;
 	mx = 0;
 	while ((ply + ++i)->name)
 		(ply + i)->score = ft_total((ply + i)->grd);
