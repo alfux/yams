@@ -6,7 +6,7 @@
 /*   By: alfux <alexis.t.fuchs@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 02:15:41 by alfux             #+#    #+#             */
-/*   Updated: 2022/08/06 14:58:53 by alfux            ###   ########.fr       */
+/*   Updated: 2022/08/12 16:26:45 by alfux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "yams.h"
@@ -64,6 +64,8 @@ static int	ft_addpnt(char **spl, int i)
 {
 	if (*(spl + 1) && ft_isinteger(*(spl + 1)))
 		return (ft_atoi(*(spl + 1)));
+	else if (*(spl + 1))
+		return (-1);
 	else if (i == YAM)
 		return (50);
 	else if (i == SQU)
