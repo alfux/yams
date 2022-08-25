@@ -6,7 +6,7 @@
 /*   By: alfux <alexis.t.fuchs@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 02:15:41 by alfux             #+#    #+#             */
-/*   Updated: 2022/08/12 16:26:45 by alfux            ###   ########.fr       */
+/*   Updated: 2022/08/25 23:47:57 by alfux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "yams.h"
@@ -18,8 +18,6 @@ static int	ft_fndcmd(char *cmd, char **cmb)
 	i = 0;
 	if (!ft_strncmp(cmd, "exit", 5))
 		return (NBC);
-	if (!ft_strncmp(cmd, "scrbrd", 7))
-		return (NBC + 1);
 	if (!ft_strncmp(cmd, "scr", 4))
 		return (NBC + 2);
 	while (i < NBC)
@@ -91,8 +89,6 @@ int	ft_parse(char *cmd, t_ply *ply, char **cmb)
 	i = ft_fndcmd(*spl, cmb);
 	if (i == NBC)
 		return (ft_freesplit(spl) - 1);
-	if (i == NBC + 1)
-		return (ft_freesplit(spl) + 2);
 	if (i == NBC + 2)
 		return (ft_freesplit(spl) + 3);
 	if (i < 0)

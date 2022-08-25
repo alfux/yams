@@ -6,7 +6,7 @@
 /*   By: alfux <alexis.t.fuchs@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 01:31:59 by alfux             #+#    #+#             */
-/*   Updated: 2022/08/25 22:39:30 by alfux            ###   ########.fr       */
+/*   Updated: 2022/08/25 23:54:43 by alfux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "yams.h"
@@ -57,6 +57,8 @@ int	ft_yams(t_ply *ply, char **cmb)
 		while ((ply + i)->name)
 		{
 			ret = ft_turn(ply + i, cmb);
+			if (ret > 0)
+				ft_scrbrd(ply, cmb, -1 + (0 * system("clear")));
 			if (ret == -1)
 				return (0);
 			else if (ret == -2)
@@ -64,11 +66,9 @@ int	ft_yams(t_ply *ply, char **cmb)
 			else if (ret == 3)
 				ft_scrbrd(ply, cmb, i);
 			else if (ret)
-				i = i + 1 + (0 * system("clear"));
-			if (ret)
-				ft_scrbrd(ply, cmb, -1);
+				i++;
 		}
 	}
-	ft_scrbrd(ply, cmb, -1);
-	return (0);
+	system("clear");
+	return (ft_scrbrd(ply, cmb, -1));
 }
